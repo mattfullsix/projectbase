@@ -1,0 +1,19 @@
+{
+  "name": "_projectbase",
+  "version": "1.0.0",
+  "authors": [
+    "mattfullsix <elmoujot@hotmail.com>"
+  ],
+  "description": "base project files",
+  "license": "BSD",
+  "main": "index.html",
+  "repository": "",
+  "keywords": [
+    "base"
+  ],
+  "dependencies": {
+    "modernizr": "~2.7.2",
+    "respondJs": "~1.4.2",
+    "es5-shim": "~2.3.0"
+  }
+}

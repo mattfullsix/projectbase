@@ -1,0 +1,35 @@
+{
+  "name": "_projectbase",
+  "version": "1.0.0",
+  "authors": [
+    "mattfullsix <elmoujot@hotmail.com>"
+  ],
+  "description": "project base",
+  "license": "BSD",
+  "main": "index.html",
+  "repository": "",
+  "keywords": [
+    "base"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test",
+    "app": "app"
+  },
+  "dependencies": {
+    "grunt": "~0.4.4"
+  },
+  "devDependencies": {
+    "grunt-contrib-connect": "~0.7.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-jshint": "~0.9.2",
+    "grunt-contrib-sass": "~0.7.3",
+    "grunt-newer": "~0.7.0",
+    "grunt-uncss": "~0.2.2",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "path": ".",
+      "folder_exclude_patterns": [".sass-cache"]
+    }
+  ],
+  "settings":
+  {
+    "tab_size": 4
+  },
+  "build_systems":
+    [
+        {
+            "name": "Sass",
+            "cmd": ["sass", "--watch", "--sourcemap", "${project_path}/scss/style.scss:${project_path}/html/css/style.css", "--style", "expanded"],
+            "selector": "source.scss",
+            "shell": true
+        }
+    ]
+}
