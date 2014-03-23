@@ -10,6 +10,27 @@ This package includes the following dependencies :
  * es5.js 2.3.0 : ecmascript5 polyfill
 
 
+## Base Scss
+
+This package includes a basic scss custom layer and "style.scss" compilation entry point.
+Additional framework should be imported through "style.scss", right after "_vars.scss".
+
+Structure is as follow :
+
+ * _vars.scss : custom variables, import before any framework
+ * base / _utils.scss : variables, extend classes and custom mixins
+ * base / _objects.scss : overrides object level styles
+ * base / _elements.scss : overrides element level styles
+ * base / _page.scss : custom layout
+ * base / _fonts.scss : custom font imports
+ * base / _animations.scss : custom css3 animation mixins
+
+
+## Structure
+
+Dev sources are located in the "scss/" and "app/" folders, from which files are compiled / concatenated and minified to output "html/" directory. The "vendor/" directory is used to store dependencies that can / should not be managed through Bower.
+
+
 ## Requirements
 
 **Using the included tools requires the following installations :**
