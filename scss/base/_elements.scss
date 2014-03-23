@@ -1,0 +1,91 @@
+/*------------------------------------*\
+    _elements.scss
+\*------------------------------------*/
+/**
+ *
+ * element level reset and styling
+ *
+ * =brand.............base brand element
+ * =breadcrumbs.......base breadcrumbs
+ * =footer............base footer element
+ * =forms.............base forms
+ * =header............base header element
+ * =pagination........base pagination
+ *
+ */
+
+/**
+ * =brand
+ */
+.brand {
+    figure {
+        @extend .extd-naked;
+        display:block;
+        text-align:center;
+        img {
+            display:inline-block;
+        }
+        figcaption {
+            display:block;
+        }
+    }
+}
+
+/**
+ * =breadcrumbs
+ */
+.breadcrumbs {
+    /* todo */
+}
+
+/**
+ * =footer
+ */
+footer, .footer {
+    /*todo*/
+}
+
+/**
+ * =forms
+ */
+form, fieldset, legend {
+    @extend .extd-naked;
+    @extend .formelement;
+}
+
+.form__group {
+    margin-bottom:10px;
+    margin-top:10px;
+    padding:0 10px 0 10px;
+}
+
+.form__line {
+    display:inline-block;
+    margin-bottom:10px;
+    margin-top:10px;
+    position:relative;
+    width:100%;
+}
+
+.form__actions {
+    @extend .form__line;
+    text-align:right;
+}
+
+legend {
+    display:block;
+}
+
+/**
+ * =header
+ */
+header, .header {
+    margin:0 0 30px 0;
+}
+
+/**
+ * =pagination
+ */
+.pagination {
+    /*todo*/
+}

@@ -1,0 +1,89 @@
+/*------------------------------------*\
+    _page.scss
+\*------------------------------------*/
+/**
+ *
+ * page level reset and styling
+ *
+ * =layout.........base layout
+ * =content........content layout
+ * =page...........page overrides
+ * =ieadjust.......IE overrides
+ *
+ */
+
+/**
+ * =layout
+ */
+body {
+    @extend .extd-naked;
+    @extend .extd-basefontstyle;
+    @include font-size($base-font-size, false);
+    background:none $white;
+    overflow:auto;
+}
+
+.page {
+    @extend .extd-naked;
+    position:relative;
+    width:100%;
+}
+
+.layout-centered {
+    @extend .extd-centered;
+    background:none transparent;
+    position:relative;
+    max-width:$max-width;
+    min-width:$min-width;
+    @include media-query(desk) {
+        padding:0 29px 0 29px;
+    }
+    @include media-query(lap) {
+        padding:0 15px 0 15px 0;
+    }
+    @include media-query(palm) {
+        padding:0;
+    }
+}
+
+.layout-full {
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+/**
+ * =page
+ */
+html {
+    font:1em/1.5 Helvetica, Arial, sans-serif;
+    padding:0;
+    color:$black;
+}
+
+.bg--black {
+    background:none $black;
+}
+
+.bg--white {
+    background:none $white;
+}
+
+.bg--grey {
+    background:none $grey;
+}
+
+/**
+ * =ieadjust
+ */
+.ie7 {
+    /*todo*/
+}
+
+.ie8 {
+    /*todo*/
+}
+
+.ie9 {
+    /*todo*/
+}

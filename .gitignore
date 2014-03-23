@@ -29,8 +29,8 @@ nbproject
 
 # Compiled css #
 ################
-html/css/style.css
-html/css/style.min.css
+html/css/*
+html/js/*
 
 # Paths #
 #########

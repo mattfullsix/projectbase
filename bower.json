@@ -7,7 +7,7 @@
   "description": "base project files",
   "license": "BSD",
   "main": "index.html",
-  "repository": "",
+  "repository": "https://github.com/mattfullsix/projectbase.git",
   "keywords": [
     "base"
   ],

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+/*------------------------------------*\
+    style.scss
+\*------------------------------------*/
+/**
+ *
+ * compile this file using Ruby / Sublime / Grunt
+ * sass --watch --sourcemap scss/style.scss:html/css/style.css --style expanded
+ *
+ */
+
+/**
+ * custom vars
+ */
+@import "vars";
+
+/**
+ * Setup
+ */
+@import "base/utils";
+@import "base/fonts";
+@import "base/objects";
+@import "base/elements";
+@import "base/page";
+@import "base/animations";

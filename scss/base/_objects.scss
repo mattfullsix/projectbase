@@ -1,0 +1,223 @@
+/*------------------------------------*\
+    _objects.scss
+\*------------------------------------*/
+/**
+ *
+ * object level reset and styling
+ *
+ * =formobjects.......base form objects
+ * =headings..........base h1 to h6 headings
+ * =links.............base links
+ * =lists.............base lists
+ * =media.............base media objects
+ * =paragraphs........base paragraphs
+ *
+ */
+
+/**
+ * =formobjects
+ */
+.formelement {
+    @extend .extd-basefontstyle;
+    @include font-size($base-font-size, false);
+    background:none;
+    font-weight:400;
+    line-height:normal;
+}
+
+.form__object {
+    background:none $white;
+    border:1px solid $silver;
+    color:$grey;
+    padding:10px 10px 10px 10px;
+    width:100%;
+}
+
+.inb__element {
+    display:inline-block;
+    vertical-align:text-bottom;
+}
+
+label, input, select, textarea {
+    @extend .extd-naked;
+    @extend .formelement;
+    display:block;
+}
+
+label, .label {
+    color:$black;
+    cursor:pointer;
+    margin:5px 0 5px 0;
+    text-transform:uppercase;
+    &.label--inb {
+        @extend .inb__element;
+        margin:0 0 0 5px;
+    }
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="tel"],
+input[type="url"], input[type="number"], input[type="date"], input[type="datetime"], input[type="datetime-local"],
+input[type="month"], input[type="time"], input[type="week"], .text-input, textarea, .select-custom {
+    @extend .form__object;
+}
+
+input::-webkit-input-placeholder {
+    color:$grey;
+}
+input::-moz-placeholder {
+    color:$grey;
+}
+input:-moz-placeholder {
+    color:$grey;
+}
+input:-ms-input-placeholder {
+    color:$grey;
+}
+
+input[type="submit"], input[type="button"], button[type="submit"], .submit, .button {
+    background:none;
+    border:1px solid $grey;
+    color:$white;
+    display:block;
+    padding:8px 0 8px 0;
+    &:active {
+        border:1px solid darken($grey, 10%);
+        color:darken($white, 10%);
+    }
+}
+
+textarea, .text-area {
+    @extend .form__object;
+}
+
+select, .select {
+    @extend .form__object;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    & ~ label {
+        @extend .extd-inline-block;
+    }
+}
+
+input[type="checkbox"] {
+    @extend .inb__element;
+}
+
+input[type="radio"] {
+    @extend .inb__element;
+}
+
+.required {
+    color:$red;
+}
+
+.disabled {
+    background:none $silver;
+    border:1px solid $grey;
+}
+
+.submit:active, .submit:focus,
+.button:active, .button:focus,
+.text-input:active, .text-input:focus,
+.text-area:active, .text-area:focus{
+   outline:thin dotted;
+}
+
+/**
+ * =headings
+ */
+h1,.h1-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h1-size, false);
+}
+
+h2,.h2-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h2-size, false);
+}
+
+h3,.h3-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h3-size, false);
+}
+
+h4,.h4-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h4-size, false);
+}
+
+h5,.h5-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h5-size, false);
+}
+
+h6,.h6-size{
+    @extend .extd-basefontstyle;
+    @include font-size($h6-size, false);
+}
+
+/**
+ * =links
+ */
+a, .link {
+    @extend .extd-basefontstyle;
+    @include font-size($base-font-size, false);
+    color:$baselink;
+    text-decoration:underline;
+}
+
+.link:active, .link:focus,
+.link--complex:active, .link--complex:focus,
+.link--figure:active, .link--figure:focus {
+    outline:thin dotted;
+}
+
+/**
+ * =lists
+ */
+ul, ol, dl {
+    @extend .extd-naked;
+    list-style-type:none;
+    li {
+        @extend .extd-naked;
+    }
+}
+
+/**
+ * =media
+ */
+img, .img {
+    /*todo*/
+}
+
+figure {
+    @extend .extd-naked;
+    display:block;
+    text-align:center;
+    >img {
+        display:inline-block;
+    }
+    figcaption {
+        display:block;
+    }
+}
+
+/**
+ * =paragraphs
+ */
+p, .p {
+    @extend .extd-naked;
+    @include font-size($base-font-size, false);
+}
+
+sup {
+    @extend .p;
+    @include font-size($base-font-size*0.5, false);
+}
+
+sub {
+    @extend .p;
+    @include font-size($base-font-size*0.5, false);
+}

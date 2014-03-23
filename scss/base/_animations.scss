@@ -1,0 +1,37 @@
+/*------------------------------------*\
+    _animations.scss
+\*------------------------------------*/
+/**
+ *
+ * Generic css3 animation mixins
+ *
+ * =transition...............generic transition mixin
+ * =animation................generic animation mixin
+ *
+ */
+
+/**
+ * =transition
+ * $values: <transition-property> <transition-duration> <transition-timing-function> <transition-delay>
+ * Add more shorthands separated by comma in $values, MUST wrap it in quotes !
+ */
+@mixin transition-shorthand($values){ //$property, $duration, $timing, $delay){
+
+    $property: transition;
+
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+      #{$prefix}#{$property}: $values;
+    }
+}
+
+/*
+* =animation
+* @include animation : generic, all-purpose css3 mixin
+*/
+@mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
+  // There is a FF bug that requires all time values to have units, even 0 !!!!!!
+  -webkit-animation: $name $duration $iterations $timing-function $delay;
+  -moz-animation: $name $duration $iterations $timing-function $delay;
+  -o-animation: $name $duration $iterations $timing-function $delay;
+  animation: $name $duration $iterations $timing-function $delay;
+}

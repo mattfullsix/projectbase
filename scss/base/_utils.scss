@@ -1,0 +1,385 @@
+/*------------------------------------*\
+    _utils.scss
+\*------------------------------------*/
+/**
+ *
+ * Custom variables
+ * =colors............basic colors
+ * =fontsize..........overrides inuit.css font sizes
+ * =dimensions........overrides inuit.css breakpoints
+ * =mediaqueries......mediaqueries
+ * =paths.............custom paths
+ *
+ * 'toolbox' : extends, helpers, mixins
+ * =extends...............global extends
+ * =helpers...............global helpers
+ * =mixins................global mixins
+ * =custommixins..........custom mixins (see http://hackingui.com/front-end/10-best-scss-utilities/)
+ *
+ */
+
+/*------------------------------------*\
+    $Custom vars
+\*------------------------------------*/
+
+/**
+* =colors
+*/
+$white:                     #ffffff;
+$black:                     #000000;
+$grey:                      #666666;        // body font
+$grey-dark:                 #333333;        // darker grey
+$silver:                    #B2B2B2;        // borders
+$silver-light:              #F7F7F7;        // lighter borders
+$red:                       #e30000;        // error color
+$baselink:                  #0000EE;        // standard link color
+
+/**
+ * =fontsize
+ */
+$h1-size:                   40px;           // .alpha
+$h2-size:                   30px;           // .beta
+$h2-size-ital:              25px;           // .beta
+$h3-size:                   24px;           // .gamma
+$h4-size:                   18px;           // .delta
+$h5-size:                   14px;           // .epsilon
+$h6-size:                   12px;           // .zeta
+$body-size:                 14px;           // base body size
+
+/* used for font size calculations */
+$base-font-size:            12px!default;   // base font size
+$font-multiplicator:        0.7rem;         // rem font multiplicator
+$base-line-height:          1;
+
+/**
+ * =dimensions / vars $screen-xy are bootstrap native overrided in _vars.scss
+ */
+$max-width:                 $screen-lg; // width maximum
+$break-end-desk:            $screen-md + 1px; // tablet breakpoint
+$break-start-pad:           $screen-md;
+$break-end-pad:             $screen-sm + 1px;  // mobile breakpoint
+$break-start-mob:           $screen-sm;
+$min-width:                 $screen-xs;  // width minimum
+
+/**
+ * =mediaqueries
+ */
+$media:                     screen; // @media directive
+$featmax:                   max-width;
+$featmin:                   min-width;
+$featorient:                orientation;
+
+
+/**
+ * =paths
+ */
+$path-img : '../images';
+$path-img__icons : '../images/icons';
+
+/*------------------------------------*\
+    $toolbox
+\*------------------------------------*/
+
+ /**
+ * =extends
+ */
+.extd-overtop {
+    margin-bottom:-50px;
+    top:-50px;
+}
+
+.extd-inline-block {
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+}
+
+.extd-naked {
+    border:none;
+    margin:0;
+    padding:0;
+}
+
+.extd-centered {
+    margin:0 auto;
+}
+
+.extd-no-bullets{
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.extd-basefontstyle {
+    @extend .extd-naked;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:normal;
+    font-weight:400;
+    line-height:normal;
+}
+
+/**
+ * =helpers
+ */
+.hyphens {
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+      -epub-hyphens: auto;
+       -moz-hyphens: auto;
+        -ms-hyphens: auto;
+         -o-hyphens: auto;
+            hyphens: auto;
+}
+
+.text-centered {
+    text-align:center;
+}
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+.hidden, .phone-hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.push-right {
+    float:right;
+}
+
+.push-left {
+    float:left;
+}
+
+/**
+ * =mixins
+ */
+@mixin font-face($font-url, $font-filename, $font-aliasname, $weight) {
+  @font-face {
+    font: {
+      family: $font-aliasname;
+      style: normal;
+      weight: $weight;
+    }
+    src: url($font-url + "/" + $font-filename + ".eot");
+    src: url($font-url + "/" + $font-filename + ".eot?#stopIE678here") format('forceIE9woff'),
+    url($font-url + "/" + $font-filename + ".woff") format("woff"),
+    url($font-url + "/" + $font-filename + ".ttf") format("truetype");
+  }
+}
+
+/* font-size */
+@mixin font-size($font-size, $line-height:true){
+    font-size:$font-size;
+    font-size:($font-size / $base-font-size)*$font-multiplicator;
+    @if $line-height == true{
+        line-height:ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+    }
+}
+
+@mixin box-shadow($val, $val) {
+    box-shadow: $val;
+    -moz-box-shadow: $val;
+    -webkit-box-shadow: $val;
+}
+
+@mixin border-radius($val) {
+    -webkit-border-radius: $val;
+    -moz-border-radius: $val;
+    border-radius: $val;
+}
+
+/**
+ * =custommixins
+ */
+
+/*
+* @include triangle within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin triangle($direction, $size: 6px, $color: #222){
+    content: '';
+    height: 0; width: 0;
+    @if ($direction == 'up'){
+        border-bottom: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+        display: block;
+        position: absolute;
+    }
+    @else if ($direction == 'down'){
+        border-top: $size solid $color;
+        border-left: 1/2*$size solid transparent;
+        border-right: 1/2*$size solid transparent;
+        display: block;
+        position: absolute;
+    }
+    @else if ($direction == 'left'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-right: $size solid $color;
+        display: block;
+        position: absolute;
+    }
+    @else if ($direction == 'right'){
+        border-top: 1/2*$size solid transparent;
+        border-bottom: 1/2*$size solid transparent;
+        border-left: $size solid $color;
+        display: block;
+        position: absolute;
+    }
+    @else if ($direction == 'left-outer'){
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size*.8 solid transparent;
+        border-right-color: $color;
+        @extend .extd-inline-block;
+        position: relative;
+    }
+    @else if ($direction == 'right-outer'){
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid transparent;
+        border-left-color: $color;
+        @extend .extd-inline-block;
+        position: relative;
+    }
+}
+
+/*
+* @include currency relies on a class set at parent level
+*/
+.currency {
+    position: relative;
+    &:before {
+        content: '$';
+        position: relative;
+        left: 0;
+    }
+}
+.USD .currency:before { content: '$'; }
+.EUR .currency:before { content: '\20AC'; } // must escape the html entities for each currency symbol
+.ILS .currency:before { content: '\20AA'; }
+.GBP .currency:before { content: '\00A3'; }
+
+/*
+* @include vertical align
+*/
+@mixin ghostVerticalAlign(){
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%; width: .1px;
+    }
+}
+
+/*
+* @include truncate text (IE8 compliant)
+*/
+@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+
+/*
+$ @include checkElems-skin : set custom skin on checkbox and/or radio elems
+*/
+@mixin checkElems-skin($type, $size, $label-posTop: false) {
+    .wrapper-#{$type},
+    .wrapper-#{$type} ~ label {
+        @extend .extd-inline-block;
+        vertical-align: middle;
+    }
+    .wrapper-#{$type} {
+        position: relative;
+        .#{$type}-custom,
+        input {
+            height: $size;
+            width: $size;
+        }
+        .#{$type}-custom {
+            /* sprite image is only contain two states (checked, unchecked) */
+            background: transparent url(#{$path-img__icons}/sprite_custom_#{$type}.png) 0 (-$size) no-repeat;
+            display: block;
+            margin-right: 5px;
+            z-index: 2;
+            &.on {
+                background-position: 0 0;
+            }
+        }
+        input {
+            cursor: pointer;
+            left: 0;
+            margin-top: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            &:focus ~ .#{$type}-custom {
+                outline:thin dotted;
+            }
+        }
+        // fine control of text label vertical position
+        @if $label-posTop {
+            & ~ label {
+                position: relative;
+                top: $label-posTop;
+            }
+        }
+    }
+}
+
+/*
+* @include media-query - inspired by inuit's media-query mixin
+* $media-query: desk, lap, palm
+*/
+@mixin media-query($media-query){
+    @if $media-query == palm{
+        @media only screen and (max-width:$break-start-mob) { @content; }
+    }
+    @if $media-query == lap{
+        @media only screen and (min-width:$break-end-pad) and (max-width:$break-start-pad) { @content; }
+    }
+    @if $media-query == desk{
+        @media only screen and (min-width:$break-end-desk) { @content; }
+    }
+}

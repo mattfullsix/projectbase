@@ -1,4 +1,4 @@
-# [projectbase](git@gitlab.fullsix.com:techsix/renault-rci-front.git)
+# [projectbase](https://github.com/mattfullsix/projectbase.git)
 
 Base project files.
 
@@ -55,10 +55,13 @@ step-by-step :
  * [grunt-contrib-copy ~0.5.0](https://npmjs.org/package/grunt-contrib-copy)
  * [grunt-contrib-jshint ~0.8.0](https://npmjs.org/package/grunt-contrib-jshint)
  * [grunt-contrib-sass ~0.7.2](https://npmjs.org/package/grunt-contrib-sass)
+ * [grunt-contrib-uglify ~0.3.3](https://npmjs.org/package/grunt-contrib-uglify)
  * [grunt-newer ~0.6.1](https://npmjs.org/package/grunt-newer)
+ * [time-grunt ~0.2.9](https://npmjs.org/package/time-grunt)
+ * [jshint-stylish ~0.1.5](https://npmjs.org/package/jshint-stylish)
  * [watch ~0.5.3](https://npmjs.org/package/grunt-contrib-watch)
  * [grunt-uncss ~0.2.0](https://github.com/addyosmani/grunt-uncss)
 
 ## Authors
 
-[Matthieu Marseille](https://gitlab.fullsix.com/u/matthieu.marseille)
+[Matthieu Marseille](https://github.com/mattfullsix)
