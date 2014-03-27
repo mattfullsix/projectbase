@@ -10,7 +10,9 @@ module.exports = function (grunt) {
       // Project settings
       f6template: {
         // configurable paths
-        html: 'html'
+        html: 'html',
+        app: 'app',
+        vendor: 'vendor'
       },
       // sass compilation
       sass: {
@@ -69,33 +71,32 @@ module.exports = function (grunt) {
                   {
                       expand: true,
                       flatten: true,
-                      cwd: 'bower_components',
-                      src: ['modernizr/modernizr.js'],
-                      dest: '<%= f6template.html %>/js/vendor/',
-                      filter: 'isFile'
-                  },
-                  {
-                      expand: true,
-                      flatten: true,
-                      cwd: 'bower_components',
-                      src: ['es5-shim/es5-shim.js'],
-                      dest: '<%= f6template.html %>/js/vendor/',
-                      filter: 'isFile'
-                  },
-                  {
-                      expand: true,
-                      flatten: true,
-                      cwd: 'bower_components',
-                      src: ['respondJs/dest/respond.min.js'],
-                      dest: '<%= f6template.html %>/js/vendor/',
-                      filter: 'isFile'
-                  },
-                  {
-                      expand: true,
-                      flatten: true,
                       cwd: 'vendor/javascripts',
                       src: ['jquery-1.11.0.js'],
-                      dest: '<%= f6template.html %>/js/vendor/',
+                      dest: '<%= f6template.app %>/lib/',
+                      filter: 'isFile'
+                  },
+                  {
+                      expand: true,
+                      flatten: true,
+                      cwd: 'bower_components',
+                      src: ['modernizr/modernizr.js', 'es5-shim/es5-shim.js', 'respondJs/dest/respond.min.js'],
+                      dest: '<%= f6template.vendor %>/javascripts/',
+                      filter: 'isFile'
+                  },
+                  {
+                      expand: true,
+                      flatten: true,
+                      cwd: 'bower_components',
+                      src: ['jquery.validation/jquery.validate.js', 'requirejs/require.js', 'l33teral/l33teral.js', 'underscore/underscore.js'],
+                      dest: '<%= f6template.app %>/lib/',
+                      filter: 'isFile'
+                  },
+                  {
+                      expand: true,
+                      cwd: 'bower_components',
+                      src: ['inuit.css/**'],
+                      dest: '<%= f6template.vendor %>/stylesheets/',
                       filter: 'isFile'
                   }
               ]
